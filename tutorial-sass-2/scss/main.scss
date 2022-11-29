@@ -1,0 +1,79 @@
+// .main {
+//   background-color: lightblue;
+//   .main-heading {
+//     font-size: 2em;
+//   }
+
+//   .main-paragraph {
+//     font-size: 1.4em;
+//   }
+// }
+
+// h1,
+// p {
+//   letter-spacing: 1px;
+// }
+
+// CSS biasa
+// .main h1,
+// .main p,
+// footer h1,
+// footer p {
+// }
+
+// CSS SASS
+// .main,
+// footer {
+//   h1,
+//   p {
+//     letter-spacing: 1px;
+//   }
+// }
+
+// &
+// Parent Selector
+// .main {
+//   .container & {
+//     background-color: lightblue;
+//   }
+//   .main-heading {
+//     font-size: 2em;
+//   }
+
+//   // Pseudo class
+//   &:hover {
+//     background-color: salmon;
+//   }
+// }
+
+// CSS biasa
+// .main {
+//   main-heading {
+//    font-size: 2em;
+//   }
+
+//   main-paragraph {
+//    font-size: 1.4em;
+//   }
+// }
+
+// SCSS
+.main {
+  & &-heading {
+    font-size: 2em;
+  }
+
+  & &-paragraph {
+    font-size: 1.4em;
+  }
+}
+
+.footer {
+  & &-heading {
+    font-size: 2em;
+  }
+
+  & &-paragraph {
+    font-size: 1.4em;
+  }
+}
