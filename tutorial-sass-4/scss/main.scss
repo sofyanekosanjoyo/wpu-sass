@@ -1,0 +1,75 @@
+// CSS biasa
+
+// .header ul,
+// .footer ul {
+//   margin: 0;
+//   padding: 0;
+//   list-style: none;
+// }
+
+// .header ul li,
+// .footer ul li {
+//   display: inline-block;
+// }
+
+// .header ul li {
+// }
+
+// .footer ul li {
+// }
+
+// SASS SCSS Mixing
+@mixin listYangInline {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  li {
+    display: inline-block;
+  }
+}
+
+.header ul {
+  @include listYangInline();
+  li {
+    background-color: slateblue;
+    padding: 0.7em;
+    a {
+      color: whitesmoke;
+    }
+  }
+}
+
+.footer ul {
+  @include listYangInline();
+  li {
+    background-color: salmon;
+    padding: 0.4em;
+  }
+  a {
+    color: blue;
+    text-decoration: none;
+  }
+}
+
+// argument pada Mixin dengan default
+@mixin kotak-fleksibel($skala: row, $jarak: center) {
+  display: flex;
+  justify-content: $jarak;
+  align-items: center;
+  flex-direction: $skala;
+}
+
+// Argument pada mixin
+.container {
+  @include kotak-fleksibel(row-reverse, space-evenly);
+  width: 600px;
+  height: 400px;
+  background-color: darkcyan;
+  .kotak {
+    width: 60px;
+    height: 60px;
+    background-color: gold;
+    text-align: center;
+    line-height: 60px;
+  }
+}
