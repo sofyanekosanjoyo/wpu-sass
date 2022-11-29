@@ -1,0 +1,56 @@
+// CSS Variabel biasa
+// :root {
+//   --warna-pertama: aqua;
+//   --warna-kedua: orange;
+//   --warna-text: brown;
+// }
+
+// body {
+//   background-color: var(--warna-pertama);
+// }
+
+// h1 {
+//   color: var(--warna-text);
+// }
+
+// p {
+//   color: var(--warna-text);
+// }
+
+// SASS SCSS Variabel
+$warna-kedua: orange;
+$warna-text: brown;
+$warna-utama: green;
+
+body {
+  //   $warna-utama: aqua !global;
+  $warna-utama: aqua;
+
+  background-color: $warna-utama;
+}
+
+h1 {
+  color: $warna-utama;
+}
+
+// CSS Biasa
+// $pemberitahuan-bahaya: red;
+// $pemberitahuan-sukses: green;
+// $pemberitahuan-peringatan: orange;
+// $pemberitahuan-utama: blue;
+
+// h1 {
+//   color: $pemberitahuan-bahaya;
+// }
+
+// SASS SCSS Map
+$pemberitahuan: (
+  "utama": blue,
+  "bahaya": red,
+  "peringatan": orange,
+  "sukses": green,
+);
+
+h1 {
+  color: map-get($pemberitahuan, "sukses");
+}
