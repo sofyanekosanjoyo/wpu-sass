@@ -1,0 +1,28 @@
+@use "submodules/mixin" as m;
+
+// CSS biasa
+// .header ul,
+// .footer ul {
+//   margin: 0;
+//   padding: 0;
+//   list-style: none;
+// }
+// .header ul li,
+// .footer ul li {
+//   display: inline-block;
+// }
+// .header ul li {
+// }
+// .footer ul li {
+// }
+.footer ul {
+  @include m.listYangInline();
+  li {
+    background-color: salmon;
+    padding: 0.4em;
+  }
+  a {
+    color: blue;
+    text-decoration: none;
+  }
+}

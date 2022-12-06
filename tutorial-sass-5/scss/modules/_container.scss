@@ -1,0 +1,16 @@
+@use "submodules/mixin" as m;
+
+// Argument pada mixin
+.container {
+  @include m.kotak-fleksibel(row-reverse, space-evenly);
+  width: 600px;
+  height: 400px;
+  background-color: darkcyan;
+  .kotak {
+    width: 60px;
+    height: 60px;
+    background-color: gold;
+    text-align: center;
+    line-height: 60px;
+  }
+}
