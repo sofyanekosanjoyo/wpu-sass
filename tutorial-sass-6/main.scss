@@ -1,0 +1,119 @@
+body {
+  min-height: 1000px;
+}
+
+// if
+@mixin foto-profil($ukuran, $bulat: false) {
+  width: $ukuran;
+  height: $ukuran;
+  border: 5px solid white;
+  box-shadow: 1px 1px 3px rgba($color: #000000, $alpha: 0.3);
+
+  @if $bulat {
+    border-radius: 50%;
+  }
+}
+
+.profil-kotak {
+  @include foto-profil(200px, $bulat: false);
+}
+
+.profil-bulat {
+  @include foto-profil(80px, $bulat: true);
+}
+
+// else
+$latar-terang: #eaeaea;
+$tulisan-terang: #333;
+$latar-gelap: #999;
+$tulisan-gelap: #ddd;
+
+@mixin mode-warna($mode-terang: true) {
+  @if $mode-terang {
+    background-color: $latar-terang;
+    color: $tulisan-terang;
+  } @else {
+    background-color: $latar-gelap;
+    color: $tulisan-gelap;
+  }
+}
+
+.nav {
+  @include mode-warna($mode-terang: false);
+}
+
+// else if
+@mixin segitiga($ukuran, $warna, $arah) {
+  width: 0;
+  height: 0;
+  background-color: transparent;
+  border-color: transparent;
+  border-style: solid;
+  border-width: $ukuran/2;
+
+  @if $arah == atas {
+    border-bottom-color: $warna;
+  } @else if $arah == kanan {
+    border-left-color: $warna;
+  } @else if $arah == bawah {
+    border-top-color: $warna;
+  } @else {
+    border-right-color: $warna;
+  }
+}
+
+.arah {
+  @include segitiga(2em, black, kanan);
+}
+
+// For
+$color: blue;
+
+.gradien1 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  @for $i from 1 to 12 {
+    li:nth-child(#{$i}) {
+      padding: 4px;
+      background-color: lighten($color, $i * 3%);
+    }
+  }
+}
+
+// For
+$color: rgb(0, 255, 0);
+
+.gradien2 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  $i: 1;
+  @while $i < 12 {
+    li:nth-child(#{$i}) {
+      padding: 4px;
+      background-color: darken($color, $i * 3%);
+    }
+    $i: $i + 1;
+  }
+}
+
+// each
+$warna-sosmed: (
+  youtube: #ff0000,
+  facebook: #3b5998,
+  twitter: #1da1f2,
+  instagram: #ffbf34,
+  twitch: #8134af,
+);
+
+.sosmed {
+  font-size: 2em;
+  font-family: arial;
+  font-weight: bold;
+  @each $sosmed, $warna in $warna-sosmed {
+    .#{$sosmed} {
+      color: $warna;
+    }
+  }
+}
